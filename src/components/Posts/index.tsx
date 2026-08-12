@@ -1,0 +1,16 @@
+import { Outlet, useParams } from 'react-router'
+
+export const Posts = () => {
+  const { id } = useParams<{ id: string }>()
+
+  return (
+    <>
+      <div>
+        <h1> Posts {id}</h1>
+        <p>Welcome to the Posts page!</p>
+      </div>
+
+      <Outlet />
+    </>
+  )
+}
