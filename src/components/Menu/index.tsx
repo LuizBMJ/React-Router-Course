@@ -1,21 +1,29 @@
-import { Link } from 'react-router'
+import { NavLink } from 'react-router'
 
 export const Menu = () => {
   return (
-    <div>
-      <nav>
-        <ul>
+    <header className="site-header">
+      <nav className="site-nav" aria-label="Main navigation">
+        <ul className="nav-list">
           <li>
-            <Link to="/">Home</Link>
-            <Link to="/about" state="This is the state: About page">
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about" state="This is the state: About page">
               About
-            </Link>
-            <Link to="/posts">Posts</Link>
-            <Link to="/posts/10">Post 10</Link>
-            <Link to="/redirect">Redirect</Link>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/posts">Posts</NavLink>
+          </li>
+          <li>
+            <NavLink to="/posts/10">Post 10</NavLink>
+          </li>
+          <li>
+            <NavLink to="/redirect">Redirect</NavLink>
           </li>
         </ul>
       </nav>
-    </div>
+    </header>
   )
 }

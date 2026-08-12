@@ -10,9 +10,19 @@ import { Redirect } from './components/Redirect/index.tsx'
 import { NotFound } from './components/404NotFound/index.tsx'
 import { Post } from './components/Post/index.tsx'
 
+const basename = '/React-Router-Course'
+
+if (window.location.pathname === `${basename}/` && window.location.hash.startsWith('#/')) {
+  window.history.replaceState(
+    null,
+    '',
+    `${basename}/${window.location.hash.slice(1)}${window.location.search}`,
+  )
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Menu />
       <Routes>
         <Route path="/" element={<Home />}></Route>

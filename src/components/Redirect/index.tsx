@@ -26,11 +26,11 @@ export const Redirect = () => {
   }, [navigate])
 
   return (
-    <>
+    <main className="page">
       <div>
         <h1> Redirect </h1>
         <p>You are being redirected in {countdown} seconds...</p>
       </div>
-    </>
+    </main>
   )
 }

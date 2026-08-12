@@ -1,9 +1,152 @@
+:root {
+  --bg: #0d0d12;
+  --bg-elevated: #16161f;
+  --surface: #1a1a24;
+  --surface-hover: #222230;
+  --border: #2a2a3a;
+  --border-strong: #3a3a4f;
+  --text: #e6e6f0;
+  --text-muted: #8b8ba3;
+  --accent: #863bff;
+  --accent-soft: #b28aff;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgb(0 0 0 / 0.4);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  color-scheme: dark;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgb(134 59 255 / 0.12), transparent 60%),
+    radial-gradient(900px 500px at 10% 110%, rgb(134 59 255 / 0.08), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgb(13 13 18 / 0.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-nav {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  list-style: none;
+  padding: 12px 0;
+}
+
+.nav-list a {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.nav-list a:hover {
+  color: var(--text);
+  background-color: var(--surface-hover);
+}
+
+.nav-list a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.nav-list a.active {
+  color: #fff;
+  background: var(--accent);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.1), 0 4px 16px rgb(134 59 255 / 0.4);
+}
+
+.page {
+  max-width: 720px;
+  margin: 48px auto;
+  padding: 0 24px;
+}
+
+.page > div {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 40px 48px;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.page > div:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.post-card {
+  margin-top: 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 32px;
+}
+
+.post-card h1 {
+  font-size: 1.35rem;
+}
+
+.post-card p {
+  margin-top: 8px;
+}
+
+.page h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.page p {
+  color: var(--text-muted);
+}
+
+.page h1 + p {
+  color: var(--text);
+}
+
+.page p:last-child:not(:first-child) {
+  margin-top: 8px;
+}
+
+a {
+  color: var(--accent-soft);
+}
+
+a:hover {
+  color: var(--accent);
 }
